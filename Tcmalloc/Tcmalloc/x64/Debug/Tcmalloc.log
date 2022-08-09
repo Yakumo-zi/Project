@@ -1,0 +1,7 @@
+﻿  main.cpp
+  ThreadCache.cpp
+G:\VSProject\Tcmalloc\Tcmalloc\ThreadCache.cpp(9,47): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+G:\VSProject\Tcmalloc\Tcmalloc\ThreadCache.cpp(10,41): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+G:\VSProject\Tcmalloc\Tcmalloc\ThreadCache.cpp(26,41): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+  正在生成代码...
+  Tcmalloc.vcxproj -> G:\VSProject\Tcmalloc\x64\Debug\Tcmalloc.exe
