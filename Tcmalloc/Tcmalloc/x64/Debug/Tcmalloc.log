@@ -1,7 +1,8 @@
-﻿  main.cpp
+﻿  CentralCache.cpp
+G:\桌面\git\project\Tcmalloc\Tcmalloc\Common.h(76,1): warning C4334: “<<”: 32 位移位的结果被隐式转换为 64 位(是否希望进行 64 位移位?)
+  main.cpp
+G:\桌面\git\project\Tcmalloc\Tcmalloc\Common.h(76,1): warning C4334: “<<”: 32 位移位的结果被隐式转换为 64 位(是否希望进行 64 位移位?)
   ThreadCache.cpp
-G:\VSProject\Tcmalloc\Tcmalloc\ThreadCache.cpp(9,47): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-G:\VSProject\Tcmalloc\Tcmalloc\ThreadCache.cpp(10,41): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-G:\VSProject\Tcmalloc\Tcmalloc\ThreadCache.cpp(26,41): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+G:\桌面\git\project\Tcmalloc\Tcmalloc\Common.h(76,1): warning C4334: “<<”: 32 位移位的结果被隐式转换为 64 位(是否希望进行 64 位移位?)
   正在生成代码...
-  Tcmalloc.vcxproj -> G:\VSProject\Tcmalloc\x64\Debug\Tcmalloc.exe
+  Tcmalloc.vcxproj -> G:\桌面\git\project\Tcmalloc\x64\Debug\Tcmalloc.exe

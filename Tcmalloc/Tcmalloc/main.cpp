@@ -3,5 +3,6 @@
 
 int main() {
     TestConcurrentAlloc();
+
     return 0;
 }

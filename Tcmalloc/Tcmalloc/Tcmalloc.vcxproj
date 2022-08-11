@@ -127,10 +127,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CentralCache.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ThreadCache.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CentralCache.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="ConcurrentAlloc.h" />
     <ClInclude Include="ObjectPool.h" />

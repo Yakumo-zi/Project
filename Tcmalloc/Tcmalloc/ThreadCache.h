@@ -1,6 +1,3 @@
-//
-// Created by devil on 2022-08-09.
-//
 #pragma once
 #include "Common.h"
 
@@ -13,4 +10,4 @@ private:
     FreeList _freeLists[NFREE_LISTS];
 };
 
-static __declspec(thread) ThreadCache* pTLSThreadCache = nullptr;
+static __declspec(thread) ThreadCache* pTLSThreadCache = nullptr;//让每个线程有自己独立的ThreadCache
