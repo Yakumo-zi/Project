@@ -8,9 +8,9 @@ void handle(int signo) {
     std::cout << signo << std::endl;
 }
 int main() {
-    for (int i = 0;i < 32;i++) {
-        signal(i, handle);
-    }
+    // for (int i = 0;i < 32;i++) {
+    //     signal(i, handle);
+    // }
     struct rlimit r;
     r.rlim_cur = 1;
     r.rlim_max = RLIM_INFINITY;

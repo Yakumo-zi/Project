@@ -6,7 +6,8 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <sys/types.h>
-
+#include <sys/resource.h>
+#include <sys/time.h>
 #include "../comm/util.hpp"
 #include "../comm/log.hpp"
 
@@ -20,10 +21,26 @@ namespace ns_runner {
         Runner();
         ~Runner();
     public:
+        //提供设置进程占用资源大小
+        //cpu资源单位是秒
+        //内存单位为KB
+        static void SetProcLimit(int cpu_limit, int mem_limit) {
+
+            struct rlimit cpu;
+            cpu.rlim_cur = cpu_limit;
+            cpu.rlim_max = RLIM_INFINITY;
+            setrlimit(RLIMIT_CPU, &cpu);
+
+            struct rlimit mem;
+            mem.rlim_cur = mem_limit * 1024;
+            mem.rlim_max = RLIM_INFINITY;
+            setrlimit(RLIMIT_AS, &mem);
+
+        }
         //返回值如果是大于0，说明程序异常了，退出时收到了信号，返回值就是对应的信号编号
         //返回值等于0，正常运行完毕，结果保存到了对应的临时文件中
         //返回值小于0，内部错误
-        static int Run(const std::string& file_name) {
+        static int Run(const std::string& file_name, int cpu_limit, int mem_limit) {
             /*****************************
             * Run跑完代码不需要考虑结果正确与否，只需要考虑运行是否正常
             * 我们必须知道可执行程序是谁
@@ -61,6 +78,7 @@ namespace ns_runner {
                 dup2(_stdin_fd, 0);
                 dup2(_stdout_fd, 1);
                 dup2(_stderr_fd, 2);
+                SetProcLimit(cpu_limit, mem_limit);
                 execl(_execute.c_str(), _execute.c_str(), nullptr);
                 exit(1);
             }

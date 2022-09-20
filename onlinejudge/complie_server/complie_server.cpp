@@ -8,8 +8,6 @@ int main() {
     std::string code = "code";
     std::string code2 = "code2";
     Complier::Complie(code);
-    Runner::Run(code);
     Complier::Complie(code2);
-    Runner::Run(code2);
     return 0;
 }
