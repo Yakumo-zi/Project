@@ -5,6 +5,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <fcntl.h>
+#include <sys/time.h>
 namespace ns_util {
     const std::string path = "./temp/";
     class PathUtil {
@@ -21,8 +22,17 @@ namespace ns_util {
         static std::string Exe(const std::string& file_name) {
             return AddSubfix(file_name, ".exe");
         }
-        static std::string Err(const std::string& file_name) {
-            return AddSubfix(file_name, ".err");
+        static std::string Stderr(const std::string& file_name) {
+            return AddSubfix(file_name, ".stderr");
+        }
+        static std::string Stdin(const std::string& file_name) {
+            return AddSubfix(file_name, ".stdin");
+        }
+        static std::string Stdout(const std::string& file_name) {
+            return AddSubfix(file_name, ".stdout");
+        }
+        static std::string ComplieErr(const std::string& file_name) {
+            return AddSubfix(file_name, ".complierr");
         }
     };
     class FileUtil {
@@ -33,6 +43,14 @@ namespace ns_util {
                 return true;
             }
             return false;
+        }
+    };
+    class TimeUtil {
+    public:
+        static std::string GetTimeStap() {
+            struct timeval _time;
+            gettimeofday(&_time, nullptr);
+            return std::to_string(_time.tv_sec);
         }
     };
 }
