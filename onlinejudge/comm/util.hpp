@@ -2,7 +2,6 @@
 
 #include<iostream>
 #include<fstream>
-#include<strstream>
 #include <string>
 #include <sys/stat.h>
 #include <sys/types.h>
@@ -79,16 +78,19 @@ namespace ns_util {
             out.close();
             return true;
         }
-        static bool ReadFile(const std::string& path_name, std::string* content) {
+        static bool ReadFile(const std::string& path_name, std::string* content, bool keep = false) {
+            (*content).clear();
             std::ifstream in(path_name);
             std::string res;
             if (!in.is_open()) {
                 return false;
             };
-            while (!in.eof()) {
-                std::string line;
-                getline(in, line);
-                *content += line;
+            std::string line;
+            while (std::getline(in, line)) {
+                if (keep) {
+                    line += "\n";
+                }
+                (*content) += line;
             }
             in.close();
             return true;
