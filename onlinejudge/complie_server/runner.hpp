@@ -88,7 +88,7 @@ namespace ns_runner {
                 close(_stderr_fd);
                 int status = 0;
                 waitpid(pid, &status, 0);
-                LOG(INFO) << "运行完毕:INFO" << (status & 0x7f) << std::endl;
+                LOG(INFO) << "运行完毕:INFO " << (status & 0x7f) << std::endl;
                 //程序运行异常，在linux中一定是受到了信号
                 return status & 0x7f;
             }
